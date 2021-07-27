@@ -11,7 +11,7 @@ Flutter screenshot integration testing (supported on Android & Web).
    
     ```sh
     git clone https://github.com/sbis04/flutter_screenshot_integration_test.git
-    ch flutter_screenshot_integration_test
+    cd flutter_screenshot_integration_test
     ```
 
 2. Make sure you are on the latest **master** branch of Flutter.
