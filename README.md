@@ -22,7 +22,7 @@ Flutter screenshot integration testing (supported on Android & Web).
    flutter pub get
    ```
 
-4. Download Chrome drive from [here](https://chromedriver.chromium.org/downloads).
+4. Download Chrome driver from [here](https://chromedriver.chromium.org/downloads).
 
 5. Run `chromedriver`:
    
