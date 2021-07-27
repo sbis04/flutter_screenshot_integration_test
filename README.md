@@ -6,17 +6,31 @@ Flutter screenshot integration testing (supported on Android & Web).
 
 ## Usage
 
-1. Make sure you are on the latest **master** branch of Flutter.
 
-2. Download Chrome drive from [here](https://chromedriver.chromium.org/downloads).
+1. Clone the repo and navigate to the directory:
+   
+    ```sh
+    git clone https://github.com/sbis04/flutter_screenshot_integration_test.git
+    ch flutter_screenshot_integration_test
+    ```
 
-3. Run `chromedriver`:
+2. Make sure you are on the latest **master** branch of Flutter.
+
+3. Get flutter packages:
+   
+   ```sh
+   flutter pub get
+   ```
+
+4. Download Chrome drive from [here](https://chromedriver.chromium.org/downloads).
+
+5. Run `chromedriver`:
    
    ```sh
    ./chromedriver --port=4444
    ```
 
-4. Run the test on web using:
+6. Run the test on web using:
    
    ```sh
    flutter drive \
@@ -25,7 +39,7 @@ Flutter screenshot integration testing (supported on Android & Web).
     -d web-server
    ```
 
-5. It should generate the screenshot in the root directory.
+7. It should generate the screenshot in the root directory.
 
 Sample screenshot running on web:
 
