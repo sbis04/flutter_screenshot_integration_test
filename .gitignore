@@ -47,4 +47,6 @@ app.*.map.json
 
 # FVM config
 .fvm/
-*.png
+
+# Test screenshots folder
+screenshots/

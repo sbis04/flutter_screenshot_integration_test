@@ -43,7 +43,7 @@ Flutter screenshot integration testing (supported on Android & Web).
 
 Sample screenshot running on web:
 
-![](./screenshot-test.png)
+![](./images/screenshot-test.png)
 
 ## Test system
 
