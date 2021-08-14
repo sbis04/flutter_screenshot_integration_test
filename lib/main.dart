@@ -8,11 +8,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Screenshot Test',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.purple,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
+      home: MyHomePage(title: 'Flutter Screenshot Test'),
     );
   }
 }
@@ -45,12 +46,17 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            FlutterLogo(
+              size: 100,
+            ),
+            SizedBox(height: 16.0),
             Text(
               'You have pushed the button this many times:',
             ),
+            SizedBox(height: 16.0),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headline3,
             ),
           ],
         ),
