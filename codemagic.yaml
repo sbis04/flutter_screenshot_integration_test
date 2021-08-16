@@ -100,6 +100,9 @@ workflows:
           cd build/web
           7z a -r ../web.zip ./*
     artifacts:
+      - build/**/outputs/apk/**/*.apk
+      - build/**/outputs/bundle/**/*.aab
+      - build/**/outputs/**/mapping.txt
       - build/web.zip
       - flutter_drive.log
     publishing:
