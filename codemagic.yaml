@@ -12,7 +12,6 @@ workflows:
       - name: Generate screenshots
         script: |
           flutter emulators --launch emulator
-          sleep 5m
           flutter drive --driver=test_driver/integration_test.dart --target=integration_test/screenshot_test.dart -d emulator-5554
       - name: Export screenshots
         script: cp -r screenshots $FCI_EXPORT_DIR
