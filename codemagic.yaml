@@ -9,11 +9,6 @@ workflows:
     scripts:
       - name: Get Flutter packages
         script: flutter packages pub get
-      # - name: Launch emulator
-      #   script: |
-      #     cd $ANDROID_HOME/tools
-      #     emulator -avd emulator &
-      #     adb wait-for-device
       - name: Launch emulator
         script: |
           flutter emulators --launch emulator
