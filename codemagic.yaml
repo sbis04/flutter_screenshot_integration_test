@@ -9,11 +9,15 @@ workflows:
     scripts:
       - name: Get Flutter packages
         script: flutter packages pub get
+      # - name: Launch emulator
+      #   script: |
+      #     cd $ANDROID_HOME/tools
+      #     emulator -avd emulator &
+      #     adb wait-for-device
       - name: Launch emulator
         script: |
-          cd $ANDROID_HOME/tools
-          emulator -avd emulator &
-          adb wait-for-device   
+          flutter emulators --launch emulator
+          adb wait-for-device      
       - name: Generate screenshots
         script: |
           flutter drive --driver=test_driver/integration_test.dart --target=integration_test/screenshot_test.dart -d emulator-5554
