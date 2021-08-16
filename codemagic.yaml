@@ -9,6 +9,8 @@ workflows:
     scripts:
       - name: Get Flutter packages
         script: flutter packages pub get
+      - name: Check emulators
+        script: flutter emulators
       - name: Generate screenshots
         script: |
           flutter emulators --launch emulator
@@ -16,7 +18,7 @@ workflows:
           --driver=test_driver/integration_test.dart \
           --target=integration_test/screenshot_test.dart \
           -d emulator-5554
-      - name: Export screenshots 
+      - name: Export screenshots
         script: cp -r screenshots $FCI_EXPORT_DIR
       - name: Build Android app
         script: flutter build apk --release
@@ -48,7 +50,7 @@ workflows:
           --driver=test_driver/integration_test.dart \
           --target=integration_test/screenshot_test.dart \
           -d web-server --release --browser-name chrome
-      - name: Export screenshots 
+      - name: Export screenshots
         script: cp -r screenshots $FCI_EXPORT_DIR
       - name: Build Web app
         script: |
