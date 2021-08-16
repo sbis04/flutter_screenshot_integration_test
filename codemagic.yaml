@@ -13,6 +13,7 @@ workflows:
         script: flutter packages pub get
       - name: Generate screenshots
         script: |
+          sleep 20
           flutter drive \
           --driver=test_driver/integration_test.dart \
           --target=integration_test/screenshot_test.dart \
