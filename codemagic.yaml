@@ -11,8 +11,7 @@ workflows:
         script: flutter packages pub get
       - name: Generate screenshots
         script: |
-          flutter emulators --launch emulator &
-          sleep 50
+          flutter emulators --launch emulator
           flutter drive \
           --driver=test_driver/integration_test.dart \
           --target=integration_test/screenshot_test.dart \
