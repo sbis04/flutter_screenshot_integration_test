@@ -1,0 +1,67 @@
+workflows:
+  android-workflow:
+    name: Android Workflow
+    max_build_duration: 60
+    environment:
+      flutter: master
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Launch Android emulator
+        script: flutter emulators --launch emulator
+      - name: Get Flutter packages
+        script: flutter packages pub get
+      - name: Generate screenshots
+        script: |
+          flutter drive \
+          --driver=test_driver/integration_test.dart \
+          --target=integration_test/screenshot_test.dart \
+          -d emulator
+      - name: Export screenshots 
+        script: cp -r screenshots $FCI_EXPORT_DIR
+      - name: Build Android app
+        script: flutter build apk --release
+    artifacts:
+      - build/**/outputs/apk/**/*.apk
+      - build/**/outputs/bundle/**/*.aab
+      - build/**/outputs/**/mapping.txt
+      - flutter_drive.log
+    publishing:
+      email:
+        recipients:
+          - sbis1999@gmail.com
+  web-workflow:
+    name: Web Workflow
+    max_build_duration: 60
+    environment:
+      flutter: master
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Get Flutter packages
+        script: flutter packages pub get
+      - name: Configure for Flutter web
+        script: |
+          flutter config --enable-web
+          chromedriver --port=4444 &
+          sleep 10
+      - name: Generate screenshots
+        script: |
+          flutter drive \
+          --driver=test_driver/integration_test.dart \
+          --target=integration_test/screenshot_test.dart \
+          -d web-server --release --browser-name chrome
+      - name: Export screenshots 
+        script: cp -r screenshots $FCI_EXPORT_DIR
+      - name: Build Web app
+        script: |
+          flutter build web --release
+          cd build/web
+          7z a -r ../web.zip ./*
+    artifacts:
+      - build/web.zip
+      - flutter_drive.log
+    publishing:
+      email:
+        recipients:
+          - sbis1999@gmail.com
