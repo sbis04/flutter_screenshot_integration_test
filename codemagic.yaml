@@ -65,7 +65,7 @@ workflows:
         recipients:
           - sbis1999@gmail.com
   android-web-workflow:
-    name: Android & Web Screenshot Workflow
+    name: Android & Web Workflow
     max_build_duration: 60
     environment:
       flutter: master
