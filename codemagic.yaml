@@ -7,13 +7,11 @@ workflows:
       xcode: latest
       cocoapods: default
     scripts:
-      - name: Launch Android emulator
-        script: flutter emulators --launch emulator
       - name: Get Flutter packages
         script: flutter packages pub get
       - name: Generate screenshots
         script: |
-          #!/bin/sh
+          flutter emulators --launch emulator
           flutter drive \
           --driver=test_driver/integration_test.dart \
           --target=integration_test/screenshot_test.dart \
@@ -41,7 +39,7 @@ workflows:
     scripts:
       - name: Get Flutter packages
         script: flutter packages pub get
-      - name: Configure for Flutter web
+      - name: Generate screenshots
         script: |
           flutter config --enable-web
           chromedriver --port=4444 &
