@@ -9,12 +9,12 @@ workflows:
     scripts:
       - name: Get Flutter packages
         script: flutter packages pub get
-      - name: Generate screenshots
-        script: |
-          flutter emulators --launch emulator
-          flutter drive --driver=test_driver/integration_test.dart --target=integration_test/screenshot_test.dart
-      - name: Export screenshots
-        script: cp -r screenshots $FCI_EXPORT_DIR
+      # - name: Generate screenshots
+      #   script: |
+      #     flutter emulators --launch emulator
+      #     flutter drive --driver=test_driver/integration_test.dart --target=integration_test/screenshot_test.dart -d emulator-5554
+      # - name: Export screenshots
+      #   script: cp -r screenshots $FCI_EXPORT_DIR
       - name: Build Android app
         script: flutter build apk --release
     artifacts:
