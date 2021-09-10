@@ -7,8 +7,8 @@ import 'package:screenshot_integration_demo/main.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 void main() {
-  final IntegrationTestWidgetsFlutterBinding binding =
-      IntegrationTestWidgetsFlutterBinding();
+  final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized()
+      as IntegrationTestWidgetsFlutterBinding;
 
   testWidgets('screenshot', (WidgetTester tester) async {
     // Build the app.
